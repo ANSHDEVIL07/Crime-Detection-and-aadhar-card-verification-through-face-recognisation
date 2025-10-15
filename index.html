@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Crime Detection System</title>
+  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body class="min-h-screen flex items-center justify-center px-4">
+  <!-- Login Page -->
+  <div id="loginPage" class="card p-8 max-w-md w-full">
+    <h1 class="text-3xl font-bold mb-6 text-center text-gray-800">Welcome Back</h1>
+    <div class="mb-4">
+      <label class="block text-sm font-medium text-gray-700">Username</label>
+      <input id="loginUsername" type="text" class="mt-1 block w-full border-gray-300 rounded-lg shadow-sm input-focus p-3" required>
+    </div>
+    <div class="mb-4">
+      <label class="block text-sm font-medium text-gray-700">Password</label>
+      <input id="loginPassword" type="password" class="mt-1 block w-full border-gray-300 rounded-lg shadow-sm input-focus p-3" required>
+    </div>
+    <button id="loginBtn" class="w-full btn-primary text-white py-3 px-4 rounded-lg">Login</button>
+    <p class="mt-4 text-center text-sm text-gray-600">
+      Don't have an account? <a href="#" id="showSignup" class="text-blue-600 hover:underline">Sign Up</a>
+    </p>
+    <p class="mt-2 text-center text-sm text-gray-600">
+      Forgot your password? <a href="#" id="showForgetPassword" class="text-blue-600 hover:underline">Reset Password</a>
+    </p>
+  </div>
+
+  <!-- Forget Password Page -->
+  <div id="forgetPasswordPage" class="hidden card p-8 max-w-md w-full">
+    <h1 class="text-3xl font-bold mb-6 text-center text-gray-800">Reset Password</h1>
+    <div class="mb-4">
+      <label class="block text-sm font-medium text-gray-700">Username</label>
+      <input id="forgetUsername" type="text" class="mt-1 block w-full border-gray-300 rounded-lg shadow-sm input-focus p-3" required>
+    </div>
+    <div class="mb-4">
+      <label class="block text-sm font-medium text-gray-700">Security Question</label>
+      <select id="forgetSecurityQuestion" class="mt-1 block w-full border-gray-300 rounded-lg shadow-sm input-focus p-3" required>
+        <option value="pet">What is the name of your first pet?</option>
+        <option value="city">What city were you born in?</option>
+        <option value="school">What is the name of your first school?</option>
+      </select>
+      <input id="forgetSecurityAnswer" type="text" class="mt-2 block w-full border-gray-300 rounded-lg shadow-sm input-focus p-3" placeholder="Answer" required>
+    </div>
+    <div class="mb-4">
+      <label class="block text-sm font-medium text-gray-700">New Password</label>
+      <input id="forgetNewPassword" type="password" class="mt-1 block w-full border-gray-300 rounded-lg shadow-sm input-focus p-3" required>
+    </div>
+    <div class="flex space-x-2">
+      <button id="resetPasswordBtn" class="w-full btn-primary text-white py-3 px-4 rounded-lg">Reset Password</button>
+      <button id="cancelResetBtn" class="w-full btn-secondary text-white py-3 px-4 rounded-lg">Cancel</button>
+    </div>
+  </div>
+
+  <!-- Signup Page -->
+  <div id="signupPage" class="hidden card p-8 max-w-md w-full">
+    <h1 class="text-3xl font-bold mb-6 text-center text-gray-800">Create Account</h1>
+    <div class="mb-4">
+      <label class="block text-sm font-medium text-gray-700">Name</label>
+      <input id="signupName" type="text" class="mt-1 block w-full border-gray-300 rounded-lg shadow-sm input-focus p-3" required>
+    </div>
+    <div class="mb-4">
+      <label class="block text-sm font-medium text-gray-700">Username</label>
+      <input id="signupUsername" type="text" class="mt-1 block w-full border-gray-300 rounded-lg shadow-sm input-focus p-3" required>
+    </div>
+    <div class="mb-4">
+      <label class="block text-sm font-medium text-gray-700">Password</label>
+      <input id="signupPassword" type="password" class="mt-1 block w-full border-gray-300 rounded-lg shadow-sm input-focus p-3" required>
+    </div>
+    <div class="mb-4">
+      <label class="block text-sm font-medium text-gray-700">Contact Number</label>
+      <input id="signupContact" type="tel" class="mt-1 block w-full border-gray-300 rounded-lg shadow-sm input-focus p-3" required>
+    </div>
+    <div class="mb-4">
+      <label class="block text-sm font-medium text-gray-700">Security Question</label>
+      <select id="signupSecurityQuestion" class="mt-1 block w-full border-gray-300 rounded-lg shadow-sm input-focus p-3" required>
+        <option value="pet">What is the name of your first pet?</option>
+        <option value="city">What city were you born in?</option>
+        <option value="school">What is the name of your first school?</option>
+      </select>
+      <input id="signupSecurityAnswer" type="text" class="mt-2 block w-full border-gray-300 rounded-lg shadow-sm input-focus p-3" placeholder="Answer" required>
+    </div>
+    <button id="signupBtn" class="w-full btn-primary text-white py-3 px-4 rounded-lg">Sign Up</button>
+    <p class="mt-4 text-center text-sm text-gray-600">
+      Already have an account? <a href="#" id="showLogin" class="text-blue-600 hover:underline">Login</a>
+    </p>
+  </div>
+
+  <!-- Dashboard Page -->
+  <div id="dashboardPage" class="hidden card p-8 max-w-5xl w-full">
+    <div class="flex justify-between items-center mb-6">
+      <h1 class="text-3xl font-bold text-gray-800">Crime Detection Dashboard</h1>
+      <button id="logoutBtn" class="btn-danger text-white py-2 px-4 rounded-lg">Exit</button>
+    </div>
+    <div class="mb-6">
+      <h2 class="text-lg font-semibold text-gray-800">User Information</h2>
+      <p id="userInfo" class="text-gray-600 bg-gray-50 p-4 rounded-lg"></p>
+    </div>
+
+    <!-- Dashboard Buttons -->
+    <div class="grid grid-cols-2 md:grid-cols-4 gap-4 mb-6">
+      <button id="faceRecognitionBtn" class="btn-primary text-white py-3 px-4 rounded-lg">Face Recognition</button>
+      <button id="investigationDetailsBtn" class="btn-primary text-white py-3 px-4 rounded-lg">Investigation Details</button>
+      <button id="crimeDetailsBtn" class="btn-primary text-white py-3 px-4 rounded-lg">Crime Details</button>
+      <button id="helpDeskBtn" class="btn-primary text-white py-3 px-4 rounded-lg">Help Desk</button>
+      <button id="trainDataBtn" class="btn-primary text-white py-3 px-4 rounded-lg">Train Data</button>
+      <button id="photosBtn" class="btn-primary text-white py-3 px-4 rounded-lg">Photos</button>
+      <button id="developerBtn" class="btn-primary text-white py-3 px-4 rounded-lg">Developer</button>
+      <button id="eraseDataBtn" class="btn-primary text-white py-3 px-4 rounded-lg">Erase Data</button>
+    </div>
+
+    <!-- Sections -->
+    <div id="investigationDetailsSection" class="hidden">
+      <h2 class="section-header text-lg font-semibold">Investigation Details</h2>
+      <div class="mb-4">
+        <label class="block text-sm font-medium text-gray-700">Captured Image</label>
+        <div id="capturedImageContainer" class="mt-2">
+          <img id="capturedImage" src="" alt="No image captured yet" class="w-32 h-32 object-cover rounded-lg border hidden">
+          <p id="noImageText" class="text-gray-500">No image captured yet. Please use Face Recognition to capture an image.</p>
+        </div>
+      </div>
+      <div class="mb-4">
+        <label class="block text-sm font-medium text-gray-700">Name</label>
+        <input id="investigationName" type="text" class="mt-1 block w-full border-gray-300 rounded-lg shadow-sm input-focus p-3" required>
+      </div>
+      <div class="mb-4">
+        <label class="block text-sm font-medium text-gray-700">Age</label>
+        <input id="investigationAge" type="number" class="mt-1 block w-full border-gray-300 rounded-lg shadow-sm input-focus p-3" required>
+      </div>
+      <div class="mb-4">
+        <label class="block text-sm font-medium text-gray-700">Aadhar Card Number</label>
+        <input id="investigationAadhar" type="text" class="mt-1 block w-full border-gray-300 rounded-lg shadow-sm input-focus p-3" required>
+      </div>
+      <div class="mb-4">
+        <label class="block text-sm font-medium text-gray-700">Crime Date</label>
+        <input id="investigationCrimeDate" type="date" class="mt-1 block w-full border-gray-300 rounded-lg shadow-sm input-focus p-3" required>
+      </div>
+      <div class="mb-4">
+        <label class="block text-sm font-medium text-gray-700">Crime Time</label>
+        <input id="investigationCrimeTime" type="time" class="mt-1 block w-full border-gray-300 rounded-lg shadow-sm input-focus p-3" required>
+      </div>
+      <div class="mb-4">
+        <label class="block text-sm font-medium text-gray-700">Suspect Address</label>
+        <textarea id="investigationSuspectAddress" class="mt-1 block w-full border-gray-300 rounded-lg shadow-sm input-focus p-3" rows="4" required></textarea>
+      </div>
+      <div class="mb-4">
+        <label class="block text-sm font-medium text-gray-700">Eye Witness</label>
+        <input id="investigationEyeWitness" type="text" class="mt-1 block w-full border-gray-300 rounded-lg shadow-sm input-focus p-3" required>
+      </div>
+      <div class="mb-4">
+        <label class="block text-sm font-medium text-gray-700">Crime Details</label>
+        <textarea id="investigationCrimeDetails" class="mt-1 block w-full border-gray-300 rounded-lg shadow-sm input-focus p-3" rows="4" required></textarea>
+      </div>
+      <button id="saveInvestigationBtn" class="btn-primary text-white py-2 px-4 rounded-lg">Save Investigation</button>
+      <p id="investigationResult" class="mt-4 text-gray-600"></p>
+    </div>
+
+    <div id="faceRecognitionSection" class="hidden">
+      <h2 class="section-header text-lg font-semibold">Face Recognition</h2>
+      <div class="mb-4">
+        <label class="block text-sm font-medium text-gray-700 mb-2">Camera Feed</label>
+        <video id="video" class="w-full max-w-md rounded-lg border shadow-sm" autoplay></video>
+        <canvas id="canvas" class="hidden"></canvas>
+      </div>
+      <div class="flex space-x-2">
+        <button id="captureBtn" class="btn-primary text-white py-2 px-4 rounded-lg">Capture Photo</button>
+        <button id="retakeBtn" class="btn-secondary text-white py-2 px-4 rounded-lg hidden">Retake Photo</button>
+        <button id="analyzeBtn" class="btn-primary text-white py-2 px-4 rounded-lg hidden">Analyze Image</button>
+      </div>
+      <div id="analysisResult" class="mt-4 hidden">
+        <h3 class="text-md font-semibold text-gray-800">Result</h3>
+        <p id="resultText" class="text-gray-600"></p>
+      </div>
+    </div>
+
+    <div id="crimeDetailsSection" class="hidden">
+      <h2 class="section-header text-lg font-semibold">Crime Details</h2>
+      <div class="overflow-x-auto">
+        <table class="w-full text-left border-collapse">
+          <thead>
+            <tr>
+              <th class="p-3">Image</th>
+              <th class="p-3">Name</th>
+              <th class="p-3">Age</th>
+              <th class="p-3">Aadhar Card</th>
+              <th class="p-3">Crime Date</th>
+              <th class="p-3">Crime Time</th>
+              <th class="p-3">Suspect Address</th>
+              <th class="p-3">Eye Witness</th>
+              <th class="p-3">Crime Details</th>
+            </tr>
+          </thead>
+          <tbody id="crimeDetailsTable"></tbody>
+        </table>
+      </div>
+    </div>
+
+    <div id="helpDeskSection" class="hidden">
+      <h2 class="section-header text-lg font-semibold">Help Desk</h2>
+      <p class="text-gray-600">For support, contact us at:</p>
+      <ul class="list-disc pl-5 mt-2 text-gray-600">
+        <li>Email: <a href="mailto:anshsharma.2675@gmail.com" class="text-blue-600 hover:underline">anshsharma.2675@gmail.com</a></li>
+        <li>Phone: +91 8700761507</li>
+        <li>Hours: Mon-Fri, 9 AM - 5 PM</li>
+      </ul>
+    </div>
+
+    <div id="trainDataSection" class="hidden">
+      <h2 class="section-header text-lg font-semibold">Train Data</h2>
+      <button id="trainBtn" class="btn-primary text-white py-2 px-4 rounded-lg">Start Training</button>
+      <p id="trainResult" class="mt-4 text-gray-600"></p>
+    </div>
+
+    <div id="photosSection" class="hidden">
+      <h2 class="section-header text-lg font-semibold">Photos</h2>
+      <div class="overflow-x-auto">
+        <table class="w-full text-left border-collapse">
+          <thead>
+            <tr>
+              <th class="p-3">Person Name</th>
+              <th class="p-3">Details</th>
+              <th class="p-3">Photo</th>
+            </tr>
+          </thead>
+          <tbody id="photosTable"></tbody>
+        </table>
+      </div>
+    </div>
+
+    <div id="developerSection" class="hidden">
+      <h2 class="section-header text-lg font-semibold">Developer</h2>
+      <p class="text-gray-600">Developed by: Group No- 25</p>
+      <p class="text-gray-600">Contact: <a href="mailto:anshsharma.2675@gmail.com" class="text-blue-600 hover:underline">anshsharma.2675@gmail.com</a></p>
+    </div>
+
+    <div id="eraseDataSection" class="hidden">
+      <h2 class="section-header text-lg font-semibold">Erase Data</h2>
+      <p class="text-gray-600 mb-4">This will erase all your facial recognition data, including photos and details. Enter your password to confirm.</p>
+      <div class="mb-4">
+        <label class="block text-sm font-medium text-gray-700">Password</label>
+        <input id="erasePassword" type="password" class="mt-1 block w-full border-gray-300 rounded-lg shadow-sm input-focus p-3" required>
+      </div>
+      <button id="confirmEraseBtn" class="btn-danger text-white py-2 px-4 rounded-lg">Confirm Erase</button>
+      <p id="eraseResult" class="mt-4 text-gray-600"></p>
+    </div>
+
+    <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.17.0/xlsx.full.min.js"></script>
+    <script src="main.js"></script>
+</body>
+</html>

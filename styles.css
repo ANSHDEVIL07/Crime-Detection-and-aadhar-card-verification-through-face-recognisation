@@ -1,0 +1,45 @@
+body {
+  background: linear-gradient(135deg, #1e3a8a, #3b82f6);
+  font-family: 'Inter', sans-serif;
+}
+.card {
+  background: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(10px);
+  border-radius: 1rem;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+}
+.btn-primary {
+  background: linear-gradient(to right, #2563eb, #1e40af);
+  transition: all 0.3s ease;
+}
+.btn-primary:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(37, 99, 235, 0.4);
+}
+.btn-secondary {
+  background: linear-gradient(to right, #6b7280, #4b5563);
+}
+.btn-danger {
+  background: linear-gradient(to right, #dc2626, #b91c1c);
+}
+.section-header {
+  background: linear-gradient(to right, #1e40af, #2563eb);
+  color: white;
+  padding: 0.5rem 1rem;
+  border-radius: 0.5rem;
+  margin-bottom: 1.5rem;
+}
+table th {
+  background: #1e40af;
+  color: white;
+}
+table tr:nth-child(even) {
+  background: #f8fafc;
+}
+.input-focus {
+  transition: all 0.3s ease;
+}
+.input-focus:focus {
+  border-color: #2563eb;
+  box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.2);
+}
