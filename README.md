@@ -1,0 +1,2 @@
+# Crime-Detection-and-aadhar-card-verification-through-face-recognisation
+The system will include real-time detection, feature extraction, facial database management, risk assessment scoring, and a web-based front-end interface for user accessibility. By automating the identification process, this project aims to enhance security, minimize human intervention, and streamline crime detection procedures.
